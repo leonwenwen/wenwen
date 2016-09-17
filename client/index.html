@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        *{
+            font-family: "微软雅黑";
+        }
+        #header_ul{
+            list-style: none;
+            position: absolute;
+            margin-left:250px;
+            -webkit-transition: all .2s linear;
+        }
+        #header_ul>li{
+            margin-left:60px;
+            padding: 0px;
+            float: left;
+            color: white;
+            font-size: 14px;
+            -webkit-transition: all .2s linear;
+        }
+        #header{
+            position: fixed;
+            width: 1349px;
+            height: 50px;
+            background-color: rgba(0,0,0,.4);
+            z-index: 1;
+        }
+        #logo{
+            position: absolute;
+            margin-left: 100px;
+        }
+        #logo>img{
+            max-height: 50px;
+        }
+        @font-face {
+            font-family:mysearch;
+            src:url("font/iconfont.ttf")
+        }
+        #search{
+            width:250px;
+            height: 50px;
+            position: absolute;
+            margin-left: 940px;
+        }
+        #search_span{
+            position: absolute;
+            margin-left: 220px;
+            font-family:"mysearch";
+            font-size:20px;
+            color: #cccccc;
+            top:11px;
+            z-index: 1;
+            -webkit-transition: all .2s linear;
+            cursor: pointer;
+        }
+        #search_input{
+            position: absolute;
+            width:220px ;
+            height:30px;
+            top:8px;
+            border-radius:7px;
+            border: none;
+            -webkit-transform:scaleX(0);
+            -webkit-transition: all .2s linear;
+            transform-origin:100% 0%;
+        }
+        #user_signin,#user_reg{
+            width: 50px;
+            height:30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            opacity: .6;
+            position: absolute;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            top:10px;
+            line-height:30px;
+        }
+        #user_signin{
+            margin-left: 1200px;
+            border-radius: 4px 0px 0px 4px;
+        }
+        #user_reg{
+            margin-left: 1252px;
+            border-radius: 0px 4px 4px 0px;
+        }
+        #wrapper{
+            position: fixed;
+            background-image: url("img/bgimg-one.png");
+            height:250px;
+            width: 1349px;
+            background-position: center center;
+            background-size: cover;
+        }
+        #wrapper>h1{
+            position: absolute;
+            color: white;
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-left: 600px;
+            margin-top: 120px;
+        }
+        #wrapper>p{
+            font-size: 12px;
+            position: absolute;
+            background-color:rgba(0,0,0,.15);
+            color:#fff;
+            padding:2px 8px;
+            display:inline-block;
+            border-radius:5px;
+            margin-left:590px;
+            margin-top: 150px;
+        }
+        #container{
+            width: 1349px;
+            height: 2000px;
+            background-color: #f1f1f1;
+            position: relative;
+            top:250px;
+        }
+        #notice{
+            width: 1349px;
+            height: 50px;
+            position: absolute;
+        }
+        #notice ul{
+            list-style: none;
+            position: absolute;
+            margin-left:20px;
+        }
+        #notice ul>li{
+             float: left;
+             margin-left:50px;
+            color: #888;
+            font-size: 12px;
+        }
+        #notice ul>li:hover{
+            color: #00c3b6;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        #carousel{
+            position: absolute;
+            width: 1349px;
+            height: 310px;
+            background-color: white;
+            margin-top: 50px;
+        }
+        #myfigure, #advertise,#advertise_two{
+            position: absolute;
+            margin-top:35px;
+            margin-left: 40px;
+        }
+        #advertise{
+            margin-left: 680px;
+        }
+        #advertise_two{
+            margin-left: 1000px;
+        }
+        #lined{
+            width: 1349px;
+            height: 970px;
+          /* background-color: #4eb0ac;*/
+            position: absolute;
+            top:360px;
+        }
+        #imgall{
+            width:1280px;
+            height: 910px;
+           /* background-color:#ffdeb1;*/
+            position: absolute;
+            margin: 30px 34.5px;
+        }
+        .imgone{
+            float: left;
+            width: 300px;
+            height:259px;
+            background-color: white;
+            margin: 0px 10px 30px;
+        }
+        .imgsrc{
+            width: 280px;
+            height: 180px;
+            text-align: center;
+            border: 10px solid white;
+           /*margin-top:10px;*/
+        }
+        .words{
+            width: 280px;
+            height:30px;
+            font-size: 12px;
+            color:#333;
+            margin-left: 10px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .time{
+            width: 280px;
+            height:30px;
+        }
+        .imgtime{
+            position: absolute;
+            width: 150px;
+            height:30px;
+            font-size: 12px;
+            color:#333;
+           margin-left: 10px;
+        }
+        .likeimg,.message{
+            font-family:"mysearch";
+            font-size:16px;
+            color: #999;
+        }
+        .likeimg{
+            margin-left: 240px;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div id="logo"><img src="img/logo.png"></div>
+<ul id="header_ul">
+    <li>文章</li>
+    <li>欣赏</li>
+    <li>素材</li>
+    <li>兑换</li>
+    <li>活动</li>
+    <li>唯然</li>
+    <li>更多</li>
+</ul>
+    <div id="search">
+        <span onclick="myinput()" id="search_span">&#xf004c;</span>
+        <input type="text" id="search_input"/>
+    </div>
+    <div id="user_signin">登录</div>
+    <div id="user_reg">注册</div>
+</header>
+<section id="wrapper">
+     <h1>热爱生活享受乐趣</h1>
+    <p>Love life and enjoy the fun.</p>
+</section>
+<section id="container">
+    <section id="notice">
+       <ul>
+           <li>[03-22]用户中心正式上线</li>
+           <li>[12-11]新增个人主页展示，越看越有爱</li>
+           <li>[12-04]觉唯官网新版升级上线</li>
+           <li>[09-01]新增QQ一键登录</li>
+           <li>[08-12]觉唯商城Beta版测试上线</li>
+       </ul>
+   </section>
+    <section id="carousel">
+        <div id="myfigure"><img src="img/imgone.jpg"/></div>
+        <div id="advertise"><img src="img/ggtwo.jpg"/></div>
+        <div id="advertise_two"><img src="img/guangao.jpg"/></div>
+    </section>
+    <section id="lined">
+        <div id="imgall">
+            <!--<div class="imgone">
+                <div class="imgsrc"><img src="img/img1.png"/></div>
+                <div class="words">五步实现网站搬家更换域名及全站301重定向方法</div>
+                <div class="time">
+                    <span class="imgtime" >3周前</span>
+                    <span class="likeimg">&#xe611;0</span>
+                    <span class="message">&#xe649;0</span>
+                </div>
+            </div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>
+            <div class="imgone"></div>-->
+        </div>
+    </section>
+</section>
+
+<script>
+    /*获取搜索框*/
+    var search_input=document.getElementById("search_input");
+    var search_span=document.getElementById("search_span");
+    var header_ul=document.getElementById("header_ul");
+    var headerLi=header_ul.getElementsByTagName("li");
+    function myinput(){
+      search_input.style.webkitTransform="scaleX(1)";
+      search_span .style.marginLeft="5px";
+      header_ul.style.marginLeft="200px";
+        for(var i=0;i<headerLi.length;i++){
+            headerLi[i].style.marginLeft="40px";
+        }
+   }
+    /*点击其他，搜索框收起*/
+    document.onmousedown=function(e){
+        var e = e || window.event;
+        search_input.style.webkitTransform="scaleX(0)";
+        search_span .style.marginLeft="220px";
+        header_ul.style.marginLeft="250px";
+        for(var i=0;i<headerLi.length;i++){
+            headerLi[i].style.marginLeft="60px";
+        }
+    };
+    /*获取滚动条高度，改变导航背景颜色*/
+    function getScrollTop(){
+        if(document.body.scrollTop>=200){
+            document.getElementById("header").style.backgroundColor="rgba(0,0,0,.8)";
+            console.log("hhhh");
+        }else{
+            document.getElementById("header").style.backgroundColor="rgba(0,0,0,.4)";
+        }
+    }
+    setInterval(getScrollTop,100);
+    /*创建数组对象*/
+    var imgArr=[{
+         "myimgsrc":"img/img1.png",
+        "mywords":"五步实现网站搬家更换域名及全站301重定向方法",
+        "mytime":"3周前"
+    },
+        {
+        "myimgsrc":"img/img2.jpg",
+        "mywords":"一点点",
+        "mytime":"4周前"
+    },
+        {
+            "myimgsrc":"img/img3.jpg",
+            "mywords":"《Flower Nostalgia》怀旧时尚风",
+            "mytime":"2016-07-15"
+    },
+        {
+            "myimgsrc":"img/img4.jpg",
+            "mywords":"La Marzocco 意大利浓缩咖啡机",
+            "mytime":"2016-07-13"
+    },
+        {
+            "myimgsrc":"img/img5.jpg",
+            "mywords":"涵艺术 Han Art Agency",
+            "mytime":"2016-07-13"
+    },
+        {
+            "myimgsrc":"img/img6.jpg",
+            "mywords":"Fusion Nightclub Shanghai",
+            "mytime":"2016-07-13"
+    },
+        {
+            "myimgsrc":"img/img7.jpg",
+            "mywords":"Cerez Bakery 克芮斯手感烘培",
+            "mytime":"2016-07-13"
+     },
+        {
+            "myimgsrc":"img/img8.jpg",
+            "mywords":"Felicoz",
+            "mytime":"2016-07-13"
+     },
+        {
+            "myimgsrc":"img/img9.jpg",
+            "mywords":"RGB：Photography by David Benoliel 美國攝影師",
+            "mytime":"2016-07-12"
+     },
+        {
+            "myimgsrc":"img/img10.gif",
+            "mywords":"新版 Material Design 官方动效指南",
+            "mytime":"2016-05-14"
+     },
+        {
+            "myimgsrc":"img/img11.jpg",
+            "mywords":"正则替换回调函数 preg_replace_callback()—Unic",
+            "mytime":"2016-05-08"
+    },
+        {
+            "myimgsrc":"img/img12.jpg",
+            "mywords":"《Diz-Diz Popcorn》品牌设计",
+            "mytime":"2016-05-06"
+    },
+
+    ]
+    /*添加内容*/
+    window.onload=function(){
+        var imgone=document.getElementById("imgall");
+        for(var i=0;i<imgArr.length;i++){
+            imgone.innerHTML+='<div class="imgone"  id="imgone"><div class="imgsrc" onmouseover="myover(this)" onmouseout="myout(this)" ><img src="'+imgArr[i].myimgsrc+'"/></div><div class="words">'+imgArr[i].mywords
+            +'</div><div class="time"><span class="imgtime" >'+imgArr[i].mytime+'</span><span class="likeimg">&#xe611;0</span>' +
+                    '<span class="message">&#xe649;0</span></div></div>'
+        }
+    }
+
+    function myover(obj){
+        obj.style.marginTop="10px";
+    }
+    function myout(obj){
+        console.log("离开");
+        obj.style.marginTop="0px";
+    }
+
+</script>
+</body>
+</html>
